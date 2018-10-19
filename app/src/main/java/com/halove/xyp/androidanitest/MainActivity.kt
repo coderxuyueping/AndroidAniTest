@@ -11,8 +11,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 /**
  * android坐标3体系：原点在v屏幕的左上角，往左为x正方向，往下为y正方向
  *
- * 对应View来说，top为view顶点到x的距离，bottom为view下边到x的距离，left为左边到y的距离，right为最右边到y的距离，这些在初始时就定了的，不会在改变
- * getX和getY为view左上角的坐标，getX = left+translationX（移动的x）  getY = top + translationY
+ * 对应View来说，top为view顶点到x的距离，bottom为view下边到x的距离，left为左边到父容器边缘的距离，right为最右边到父容器边缘的距离，这些在初始时就定了的，不会在改变
+ * getX和getY为view基于父容器边缘左上角的坐标，getX = left+translationX（移动的x）  getY = top + translationY
+ *MotionEvent.getX()：获取点击事件距离控件左边缘的距离，单位：像素；
+ * MotionEvent.getY()：获取点击事件距离控件上边缘的距离，单位：像素；
+ * MotionEvent.getRawX()：获取点击事件距离屏幕左边缘的距离，单位：像素；
+ * MotionEvent.getRawY()：获取点击事件距离屏幕上边缘的距离，单位：像素。
  */
 class MainActivity : AppCompatActivity() {
 
